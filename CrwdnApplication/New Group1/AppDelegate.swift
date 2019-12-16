@@ -33,11 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let GoogleapiKey = "AIzaSyCRQ5K2G8aruotYr00kolzEAmk4HBBwwNY"
-    let parseAPPId  = "f47a0c8c25a5b8cb3687df27d0d7a64ec75246a5"
-    let parseClientKey =  "c56aeffb98dd009e1a5eb8ac8dbaf196ce28cfa1"
-    let ParseServer = "http://18.222.159.195:80/parse"
+//    let parseAPPId  = "f47a0c8c25a5b8cb3687df27d0d7a64ec75246a5"
+//    let parseClientKey =  "c56aeffb98dd009e1a5eb8ac8dbaf196ce28cfa1"
+//    let ParseServer = "http://18.222.159.195:80/parse"
     let radarPublishisableKey = "prj_test_pk_1ed475572366bc6cf0d865c46430baddc8c244fe"
     
+    let parseAPPId  = "hXAYe23pT3tmagsuGXMNQKqHN24JKGOzIiRnP5Z4"
+    let parseClientKey =  "N48FV2j9av7dICYEx8SLkrr8TqHmstndVqAeunu0"
+    let ParseServer = "https://parseapi.back4app.com/"
     
     
     
@@ -63,6 +66,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //create user for parse
+        
+        if PFUser.current() == nil {
+            PFAnonymousUtils.logIn { (user, error) in
+                if let error = error {
+                    print("annonymos login failed and there was an error \(error.localizedDescription)")
+                }else{
+                    if let user = user {
+                        print("annonymos login succesful and there was no error \(user.objectId)")
+                    }else{
+                        print("user was nil")
+                    }
+                }
+            }
+        }
         
         
         

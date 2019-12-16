@@ -160,6 +160,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         
+        print("user has been deleted")
         firstUpdate = true 
         super.viewDidLoad()
         searchTextField.delegate = self
@@ -344,7 +345,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
                             let distanceFromCurrentLocationInMiles = (userLocation?.distance(from: objectLoctaionInCllocation))! / 1609.344
                             
                             let objectNameOfPlace = object.object(forKey: "RadarName") as! String
-                            let imageid = object.object(forKey: "PlaceID") as! String
+                            let imageid = object.object(forKey: "PlaceID") as! String ?? ""
                             // string will be changed later
                             let singleItem = Crwds(lattitude: objectLattiude, longitude: objectLongitude)
                             singleItem.SetNameOfPlace(name: objectNameOfPlace)

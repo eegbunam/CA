@@ -16,14 +16,25 @@ extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSourc
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return crowdList.count
+        
+        if crowdList.count == 0{
+            return 5
+        }else{
+            return crowdList.count
+        }
+        
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! 
         CollectionViewCell
-        cell.nameOfPlace.text = crowdList[indexPath.row].nameOfPlace
-        cell.distanceInMiles.text = crowdList[indexPath.row].distanceFromCurrentLocation
+        if crowdList.count > 0{
+            cell.nameOfPlace.text = crowdList[indexPath.row].nameOfPlace
+            cell.distanceInMiles.text = crowdList[indexPath.row].distanceFromCurrentLocation
+            
+            
+        }
         
         //DownloadImage(imageURL: "https://image.blockbusterbd.net/00416_main_image_04072019225805.png")
         //chnagingImage?.resizeImage(cell.snapButtonOutlet.frame.height, opaque: false)
