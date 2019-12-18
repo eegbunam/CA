@@ -23,7 +23,7 @@ extension ViewController: CLLocationManagerDelegate {
         
         if firstUpdate{
             setUpRader()
-            
+            centerViewOnUserLocation()
             populate(currentlattitude: userLattidude, currentLongitude: userLongitude)
             firstUpdate = false
             
@@ -35,14 +35,12 @@ extension ViewController: CLLocationManagerDelegate {
                 for event in events{
                     print(event)
                 }
-                
+
             }
-            
+
         })
         
-        Radar.trackOnce { (status, location, events, user) in
-            print("i am tracking here")
-        }
+        
         
         
         

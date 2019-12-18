@@ -178,6 +178,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     }
     
     
+   
+    
     
     
     
@@ -448,6 +450,21 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
             
             
         }
+        
+    }
+    
+    @objc func testSegue(){
+        if #available(iOS 13.0, *) {
+            let viewImageSnapViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "ViewImageSnapViewController") as! ViewImageSnapViewController
+            viewImageSnapViewController.modalPresentationStyle = .fullScreen
+            self.present(viewImageSnapViewController, animated: true, completion: nil)
+            
+            
+        } else {
+            // Fallback on earlier versions
+        }
+       
+        
         
     }
     

@@ -57,6 +57,8 @@
 		4351984D2394631F00C487E1 /* menuBackgroundView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984B23945A1500C487E1 /* menuBackgroundView .swift */; };
 		4351984E2394631F00C487E1 /* menuBackgroundView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984B23945A1500C487E1 /* menuBackgroundView .swift */; };
 		43519850239463BF00C487E1 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984F239463BF00C487E1 /* cardView.swift */; };
+		436B1C3523A96C2700C32790 /* SnapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B1C3423A96C2700C32790 /* SnapImageView.swift */; };
+		436B1C3723A97E0800C32790 /* ViewImageSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */; };
 		4372DB2A230F162B00972AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372DB29230F162B00972AB8 /* AppDelegate.swift */; };
 		4372DB2C230F162B00972AB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372DB2B230F162B00972AB8 /* ViewController.swift */; };
 		4372DB32230F162B00972AB8 /* CrwdnApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4372DB30230F162B00972AB8 /* CrwdnApplication.xcdatamodeld */; };
@@ -145,6 +147,8 @@
 		434B072D238913340028BADF /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		4351984B23945A1500C487E1 /* menuBackgroundView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "menuBackgroundView .swift"; sourceTree = "<group>"; };
 		4351984F239463BF00C487E1 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
+		436B1C3423A96C2700C32790 /* SnapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapImageView.swift; sourceTree = "<group>"; };
+		436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageSnapViewController.swift; sourceTree = "<group>"; };
 		4372DB26230F162B00972AB8 /* CrwdnApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrwdnApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4372DB29230F162B00972AB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../New Group1/AppDelegate.swift"; sourceTree = "<group>"; };
 		4372DB2B230F162B00972AB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 			children = (
 				4396162B23680326001331FC /* Extentions  */,
 				4372DB2B230F162B00972AB8 /* ViewController.swift */,
+				436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */,
 				434B072D238913340028BADF /* LocationSearchTable.swift */,
 				43280155235158F3004C5725 /* ProfileViewController.swift */,
 				430D2D37231DFF1C005510A2 /* CameraViewController.swift */,
@@ -377,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				43D65B47235E8B9A00E391DE /* CollectionViewCell.swift */,
+				436B1C3423A96C2700C32790 /* SnapImageView.swift */,
 				43D65B48235E8B9A00E391DE /* CollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
@@ -656,7 +662,9 @@
 				43519850239463BF00C487E1 /* cardView.swift in Sources */,
 				4328015323511249004C5725 /* CardViewController.swift in Sources */,
 				43C5E4992342F25800D06BCE /* GMapViewController.swift in Sources */,
+				436B1C3723A97E0800C32790 /* ViewImageSnapViewController.swift in Sources */,
 				4396163123680448001331FC /* LocationExtention.swift in Sources */,
+				436B1C3523A96C2700C32790 /* SnapImageView.swift in Sources */,
 				43280156235158F3004C5725 /* ProfileViewController.swift in Sources */,
 				43E0844223A5D9A600E89358 /* RadarDelegate.swift in Sources */,
 				4372DB32230F162B00972AB8 /* CrwdnApplication.xcdatamodeld in Sources */,

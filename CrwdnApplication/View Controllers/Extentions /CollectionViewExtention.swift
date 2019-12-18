@@ -33,7 +33,9 @@ extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSourc
             cell.nameOfPlace.text = crowdList[indexPath.row].nameOfPlace
             cell.distanceInMiles.text = crowdList[indexPath.row].distanceFromCurrentLocation
             
-            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(testSegue))
+                   
+            cell.tapView.addGestureRecognizer(tapGestureRecognizer)
         }
         
         //DownloadImage(imageURL: "https://image.blockbusterbd.net/00416_main_image_04072019225805.png")

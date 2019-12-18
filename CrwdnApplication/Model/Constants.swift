@@ -15,11 +15,11 @@ struct Constants {
         static let CurrentPlaceID = "PlaceID"
         static let addedCover = "addedCover"
         static let RadarName = "RadarName"
-        static let placeID  = "placeID"
         static let people = "People"
         static let PlaceID = "PlaceID"
         static let People = "poeple" // wrong spelling but its right on database
          static let Location = "location"
+        
     }
     /// constantRaderClass
     struct Rader {

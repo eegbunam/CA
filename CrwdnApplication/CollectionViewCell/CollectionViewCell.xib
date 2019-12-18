@@ -26,14 +26,22 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkO-4l-Kez">
                                         <rect key="frame" x="0.0" y="0.0" width="83" height="101"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uiz-Ib-tm9">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uiz-Ib-tm9" customClass="SnapImageView" customModule="CrwdnApplication" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3km-A8-22O">
+                                                <rect key="frame" x="16" y="17" width="41" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="3km-A8-22O" secondAttribute="bottom" constant="44" id="9Cd-8u-sE6"/>
                                             <constraint firstItem="uiz-Ib-tm9" firstAttribute="top" secondItem="mkO-4l-Kez" secondAttribute="top" id="HpR-eC-6VV"/>
                                             <constraint firstAttribute="trailing" secondItem="uiz-Ib-tm9" secondAttribute="trailing" constant="3" id="JlT-dM-gi1"/>
+                                            <constraint firstItem="3km-A8-22O" firstAttribute="leading" secondItem="mkO-4l-Kez" secondAttribute="leading" constant="16" id="JsE-Nb-hcB"/>
+                                            <constraint firstAttribute="trailing" secondItem="3km-A8-22O" secondAttribute="trailing" constant="26" id="foK-un-UY3"/>
+                                            <constraint firstItem="3km-A8-22O" firstAttribute="top" secondItem="mkO-4l-Kez" secondAttribute="top" constant="17" id="li1-wX-S9I"/>
                                             <constraint firstItem="uiz-Ib-tm9" firstAttribute="leading" secondItem="mkO-4l-Kez" secondAttribute="leading" id="qPR-zr-cTR"/>
                                             <constraint firstAttribute="bottom" secondItem="uiz-Ib-tm9" secondAttribute="bottom" constant="21" id="wjQ-sC-G7f"/>
                                         </constraints>
@@ -103,7 +111,8 @@
                 <outlet property="coverFee" destination="RBH-oU-d3i" id="fBQ-QW-QQQ"/>
                 <outlet property="distanceInMiles" destination="v9i-mM-HS6" id="UDp-BV-b87"/>
                 <outlet property="nameOfPlace" destination="xxa-VW-fU3" id="HCS-O5-ktC"/>
-                <outlet property="snapImage" destination="uiz-Ib-tm9" id="8Py-Aa-zB5"/>
+                <outlet property="snapImage" destination="uiz-Ib-tm9" id="Ku0-sG-z1q"/>
+                <outlet property="tapView" destination="3km-A8-22O" id="0y2-9F-3K6"/>
             </connections>
             <point key="canvasLocation" x="-62.318840579710148" y="27.120535714285712"/>
         </collectionViewCell>

@@ -12,52 +12,12 @@ import MapKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    let firstView = ViewController()
+  
     
-    let locationManager = CLLocationManager()
-    let regionInMeters: Double = 1000
-    let coordinate =  CLLocationCoordinate2DMake(38.8977, -77.0365)
-
+   
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-       
          behindView.layer.cornerRadius = 12
-        
-//        snapButtonOutlet.layer.shadowColor = UIColor.black.cgColor
-//        snapButtonOutlet.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//        snapButtonOutlet.layer.masksToBounds = false
-//        snapButtonOutlet.layer.shadowRadius = 1.0
-//        snapButtonOutlet.layer.shadowOpacity = 0.5
-//        snapButtonOutlet.layer.cornerRadius = snapButtonOutlet.frame.width / 2
-//        snapButtonOutlet.layer.borderWidth = 1
-//
-//
-//        snapButtonOutlet.layer.borderColor = UIColor.red.cgColor
-//        snapButtonOutlet.backgroundColor = UIColor.gray
-//        snapButtonOutlet.imageView?.layer.cornerRadius = (snapButtonOutlet.imageView?.frame.width)! / 2
-//        snapButtonOutlet.imageView?.contentMode = .scaleAspectFit
-        
-        //snapButtonOutlet.backgroundColor = .red
-        
-//        behindView.layer.shadowColor = UIColor.black.cgColor
-//        behindView.layer.shadowOpacity = 0.5
-//        behindView.layer.shadowRadius = 5
-//        behindView.layer.shadowOffset = CGSize(width: 15, height: 15)
-//        behindView.clipsToBounds = true
-//        behindView.layer.masksToBounds = true
-//
-        
-        snapImage.layer.cornerRadius =  snapImage.frame.width / 2
-        snapImage.clipsToBounds = true
-        snapImage.backgroundColor = .gray
-        snapImage.layer.borderWidth = 1
-        snapImage.layer.borderColor = UIColor.white.cgColor
-        snapImage.layer.borderColor = UIColor.red.cgColor
-        
-        //snapImage.layer.addGradientBorder(colors: [UIColor.white,UIColor.white], width: 1)
-        //snapImage.layer.addGradientBorder(colors: [UIColor.red,UIColor.red], width: 1)
-        
         
         
         
@@ -67,25 +27,20 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var snapButtonOutlet: UIButton!
-    
     @IBOutlet weak var nameOfPlace: UILabel!
     @IBOutlet weak var coverFee: UILabel!
     @IBOutlet weak var views: UILabel!
     @IBOutlet weak var behindView: UIView!
-    
     @IBOutlet weak var snapImage: UIImageView!
     @IBOutlet weak var distanceInMiles: UILabel!
+
+    @IBOutlet weak var tapView: UIView!
     
     
     
     
     
-    
-    @IBAction func changeLoationViewButton(_ sender: Any) {
-        
-       
-        
-    }
+   
     
     
     

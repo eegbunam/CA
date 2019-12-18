@@ -35,6 +35,8 @@ extension AppDelegate : RadarDelegate {
         print("rader status")
         print(status)
         print("rader status")
+        
+        
     }
     
     
@@ -103,7 +105,7 @@ extension AppDelegate : RadarDelegate {
             
             
             let query = PFQuery(className: Constants.CParse.Crwds)
-            query.whereKey(Constants.CParse.placeID, equalTo: locationID)
+            query.whereKey(Constants.CParse.PlaceID, equalTo: locationID)
             query.findObjectsInBackground { (objects, error) in
                 
                 if let error = error{
