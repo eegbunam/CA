@@ -25,7 +25,7 @@ extension AppDelegate : RadarDelegate {
         // do something with location, user
         print("update events for rader")
         print(user.location.coordinate.latitude)
-        print(user.place?.name)
+        print(user.place?.name ?? "no name for loaction")
         
         
     }
@@ -108,7 +108,7 @@ extension AppDelegate : RadarDelegate {
             query.whereKey(Constants.CParse.PlaceID, equalTo: locationID)
             query.findObjectsInBackground { (objects, error) in
                 
-                if let error = error{
+                if error != nil{
                     //unrapping error
                     //there is an error
                     print("there is an error in addor remoive user to server")

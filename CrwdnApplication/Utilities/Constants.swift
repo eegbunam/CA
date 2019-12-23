@@ -19,10 +19,15 @@ struct Constants {
         static let PlaceID = "PlaceID"
         static let People = "poeple" // wrong spelling but its right on database
          static let Location = "location"
+        static let RecentPic = "RecentPic"
         
     }
     /// constantRaderClass
     struct Rader {
         //static let Crwds = "Crowds"
+    }
+    
+    struct General {
+        
     }
 }

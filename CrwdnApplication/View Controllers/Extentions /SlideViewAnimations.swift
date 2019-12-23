@@ -38,6 +38,7 @@ extension ViewController{
         switch recogonizer.state {
         case .ended:
             animateTransitionIfNeeded(state: nextState, duration: 0.9)
+           
             
         default:
             break
@@ -53,7 +54,7 @@ extension ViewController{
             startTrans(state: nextState, duration: timeInterval)
         case .changed:
             let translation = recognizer.translation(in: self.gestureView)
-            var fractionCompleted = translation.y  / self.gestureView.frame.height
+            var fractionCompleted = translation.y  / self.viewAdd.frame.height
             fractionCompleted = cardVisible ? fractionCompleted : -fractionCompleted
             updateTrans(fractionCompleted:fractionCompleted)
             
@@ -66,7 +67,7 @@ extension ViewController{
     }
     
     
-    func animateTransitionIfNeeded( state : cardState , duration :TimeInterval){
+    func animateTransitionIfNeeded(state : cardState , duration :TimeInterval){
         if runningAnimations.isEmpty{
             // animating view
             let viewAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
@@ -95,7 +96,12 @@ extension ViewController{
             }
             
             viewAnimator.startAnimation()
+            
             runningAnimations.append(viewAnimator)
+            
+        
+            
+            
             
             
             
@@ -122,27 +128,7 @@ extension ViewController{
             runningAnimations.append(connerRadius)
             
             
-            
-            // animating self.view : expaneded the view reduces in width and vice versa
-            
-            
-//            let selfViewAnimation = UIViewPropertyAnimator(duration: 0.45, curve: .linear) {
-//                switch state{
-//                case .collapsed:
-//                    //return to original height
-//                    self.mapView.transform = CGAffineTransform(scaleX: 1, y: 1)
-//                    self.view.backgroundColor = .white
-//                case .expanded:
-//                    // reduce size
-//                    self.mapView.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
-//                    self.view.backgroundColor = .black
-//
-//                }
-//            }
-//
-//            selfViewAnimation.startAnimation()
-//            runningAnimations.append(selfViewAnimation)
-            
+  
             //MARK:-  animate stack
             
             
@@ -162,23 +148,7 @@ extension ViewController{
                         stackAnimator.startAnimation()
                         runningAnimations.append(stackAnimator)
             
-            //buttonanimator ended
-            //
-            //            let positionButtonAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio:1) {
-            //                switch state{
-            //                case .collapsed:
-            //                    self.positionOutlet.transform = CGAffineTransform(translationX: 0, y: -(self.positionOutlet.frame.height - 64))
-            //
-            //                case .expanded:
-            //                    self.positionOutlet.transform = CGAffineTransform(translationX: 0, y: -(self.cardHeight - self.positionOutlet.frame.height + 9))
-            //
-            //                }
-            //            }
-            //
-            //            positionButtonAnimator.startAnimation()
-            //            runningAnimations.append(positionButtonAnimator)
-            //
-            //
+            
             
         }
         
@@ -191,7 +161,7 @@ extension ViewController{
         }
         for animator in runningAnimations{
             animator.pauseAnimation()
-            animationProgressWhenInterrupted = animator.fractionComplete + animationProgressWhenInterrupted
+            animationProgressWhenInterrupted = animator.fractionComplete
         }
         
         
@@ -200,7 +170,7 @@ extension ViewController{
     func updateTrans(fractionCompleted : CGFloat){
         
         for animator in runningAnimations{
-            animator.fractionComplete = fractionCompleted
+            animator.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
         }
         
     }

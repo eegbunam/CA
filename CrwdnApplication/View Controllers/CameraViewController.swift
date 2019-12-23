@@ -138,8 +138,8 @@ class CameraViewController: UIViewController , AVCapturePhotoCaptureDelegate{
         }
         if sender.tag == 2{
             
-             let flashMode: AVCaptureDevice.FlashMode // .on, .off, .auto [default is .auto]
-            flashMode = .auto
+//             let flashMode: AVCaptureDevice.FlashMode // .on, .off, .auto [default is .auto]
+//            flashMode = .auto
             
         }
     }

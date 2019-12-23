@@ -26,14 +26,14 @@ class SnapImageView : UIImageView{
            setUpView()
         drawCircle(onImageView: self, withColor: UIColor.red.cgColor, andTagToRemove: 10, withlayer: self.layer)
         
-        drawSecondCircle(onImageView: self, withColor: UIColor.white.cgColor, andTagToRemove: 0, withlayer: self.layer)
+       drawSecondCircle(onImageView: self, withColor: UIColor.white.cgColor, andTagToRemove: 0, withlayer: self.layer)
        }
        
 
     
     func setUpView(){
         
-        self.layer.cornerRadius =  self.frame.width / 2
+               self.layer.cornerRadius =  self.frame.width / 2
               self.clipsToBounds = true
               self.backgroundColor = .gray
               self.layer.borderWidth = 1

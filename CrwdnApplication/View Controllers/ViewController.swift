@@ -10,12 +10,16 @@ protocol HandleMapSearch: class {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
+protocol ViewControllerDelegate {
+    func didGetCurrentLocation (currentLocation : CLLocationCoordinate2D)
+}
+
 
 class Crwds{
     
     
-    var lattitude:  Double
-    var longitude:Double
+    var lattitude:  Double = 0
+    var longitude:Double = 0
     var nameOfPlace:String = ""
     var distanceFromCurrentLocation : String = ""
     var imageID:String = ""
@@ -88,6 +92,11 @@ import RadarSDK
 class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     
+    enum SlideUpCardState{
+        case closed
+        case middle
+        case fullyOpen
+    }
     
     
     enum cardState{
@@ -110,9 +119,15 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     let cardTransformHeightWhenCollapsed  = -160
     let cardTransformHeightWhenExpanded = 30
     var cardViewController : CardViewController!
+    var slideUpViewController : SlideUpViewController!
+    var delegate : ViewControllerDelegate?
     var visualEffectView : UIVisualEffectView!
     let cardHeight :CGFloat = 285
     let cardhandleAreaHeight :CGFloat = 60
+    let SlideUpcardHeight :CGFloat = 277
+    let SlideUpcardhandleAreaHeight :CGFloat = 65
+    let slideUPfullScreenHeight : CGFloat = 600
+    
     var cardVisible = false
     var userLattidude : Double =  0
     var userLongitude :Double = 0
@@ -124,7 +139,13 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     let timeInterval = 0.9
     
     var runningAnimations = [UIViewPropertyAnimator]()
+    var slideUprunningAnimations = [UIViewPropertyAnimator]()
+    var slideUpViewVisible = false
+    var slideUpnextState :SlideUpCardState = .closed
+    
+    
     var animationProgressWhenInterrupted: CGFloat = 0
+    var slideUpanimationProgressWhenInterrupted: CGFloat = 0
     
     // end of varibels and etc
     
@@ -138,9 +159,13 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     @IBOutlet weak var viewAdd: UIView!
     
     
+    @IBOutlet weak var ContainerSlideView: UIView!
+    
+    
     @IBOutlet weak var gestureView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     
     @IBOutlet weak var searchAndStatusView: UIView!
@@ -160,25 +185,28 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         
+        
         print("user has been deleted")
         firstUpdate = true 
         super.viewDidLoad()
         searchTextField.delegate = self
-        setupGesture()
-        setUpCard()
+        //setupGesture()
+        //setUpCard()
         checkLocationServices()
+        setUpSlideUpView()
+        
         
         
         
         
         self.collectionView.register(UINib(nibName:"CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
-      
+        
         
     }
     
     
-   
+    
     
     
     
@@ -207,6 +235,12 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         }
         
         
+    }
+    
+    
+    
+    @IBAction func triggerDelegate(_ sender: UIButton) {
+     
     }
     
     func  ZoomToLocation( coordinate : CLLocationCoordinate2D)
@@ -263,7 +297,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     // everything to do with location and map set up
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-       // navigationController?.setToolbarHidden(true, animated: true)
+        // navigationController?.setToolbarHidden(true, animated: true)
     }
     //MARK:- LOCATION SETTINGS
     
@@ -301,14 +335,14 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
             locationManager.startUpdatingLocation()
             break
         case .denied:
-           
+            
             // Show alert instructing them how to turn on permissions
             break
         case .notDetermined:
             //print("yup")
             locationManager.requestWhenInUseAuthorization()
             locationManager.requestAlwaysAuthorization()
-             locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
         case .restricted:
             // Show an alert letting them know what's up
             break
@@ -319,6 +353,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         }
     }
     
+   
     
     // parse services
     
@@ -354,11 +389,6 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
                             singleItem.distanceFromCurrentLocation = "\(Int(distanceFromCurrentLocationInMiles)) m"
                             singleItem.setImageID(imageid: imageid)
                             // query image id here
-                            
-                            
-                            
-                            
-                            
                             
                             // append item should be the last thing you do
                             self.crowdList.append(singleItem)
@@ -439,7 +469,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         }else{
             
             UIView.animate(withDuration: 0.3, animations: {
-                 self.tableView.frame = CGRect(x: 20, y: 170, width: self.view.frame.width - 40 , height: self.view.frame.height - 170)
+                self.tableView.frame = CGRect(x: 20, y: 170, width: self.view.frame.width - 40 , height: self.view.frame.height - 170)
             }) { (finished) in
                 for subview in self.view.subviews{
                     if subview.tag == 18 {
@@ -463,7 +493,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         } else {
             // Fallback on earlier versions
         }
-       
+        
         
         
     }
@@ -517,15 +547,15 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
          */
         let url = URL(string:videoURL)!
         var  finalUrl :String? = nil
-
+        
         let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
             if let localURL = localURL {
-                finalUrl = (localURL as! String)
+                //finalUrl = (localURL as! String)
                 
                 
             }
         }
-
+        
         task.resume()
         return finalUrl
         
@@ -554,7 +584,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         }
         
         
-
+        
         return finalImage
         
         
@@ -567,12 +597,12 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
          deletes the file with url
          */
         let fileURL = fileUrl
-
+        
         do {
-          try FileManager.default.removeItem(at: fileURL)
-                    
+            try FileManager.default.removeItem(at: fileURL)
+            
         } catch {
-          fatalError("Couldn't remove file.")
+            fatalError("Couldn't remove file.")
         }
         
     }
@@ -584,35 +614,35 @@ extension ViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == searchTextField{
             tableView.frame = CGRect(x: 20, y: view.frame.height, width: view.frame.width - 40 , height: view.frame.height - 170)
-                   tableView.layer.cornerRadius = 5
-                   tableView.register(UITableViewCell.self, forCellReuseIdentifier: "locationcell")
-                   tableView.dataSource = self
-                   tableView.delegate = self
-                   tableView.tag = 18
-                   tableView.rowHeight = 60
-                   view.addSubview(tableView)
+            tableView.layer.cornerRadius = 5
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "locationcell")
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.tag = 18
+            tableView.rowHeight = 60
+            view.addSubview(tableView)
             showTableView(shouldShow: true)
             
         }
         
-       
-       
-
+        
+        
+        
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
-
+    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
-
-
-
+    
+    
+    
 }
 
 
@@ -629,7 +659,7 @@ extension ViewController: HandleMapSearch {
         
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
-                annotation.subtitle = "\(city) \(state)"
+            annotation.subtitle = "\(city) \(state)"
         }
         
         mapView.addAnnotation(annotation)
@@ -661,6 +691,187 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 
+
+
+extension ViewController {
+    //MARK:- slide up view controllerSlideUpViewControllercontrols
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func setUpSlideUpView(){
+        slideUpViewController = SlideUpViewController(nibName: "SlideUpViewController", bundle: nil)
+        slideUpViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - SlideUpcardhandleAreaHeight, width: self.view.frame.width, height: self.view.frame.height)
+        slideUpViewController.view.clipsToBounds = true
+        slideUpViewController.delegate = self
+        self.addChild(slideUpViewController)
+        self.delegate = slideUpViewController
+        
+        self.view.addSubview(slideUpViewController.view)
+        
+        let slideUpPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(SlidehandlePan(recognizer:)))
+        let slideUpTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(slideUpTap(recognzier:)))
+        slideUpViewController.handleAreaView.addGestureRecognizer(slideUpTapGestureRecognizer)
+        slideUpViewController.handleAreaView.addGestureRecognizer(slideUpPanGestureRecognizer)
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    @objc func slideUpTap( recognzier : UITapGestureRecognizer){
+        switch recognzier.state {
+               case .ended:
+                 print("in tapgetsure ")
+                   slideupViewAnimator(state: slideUpnextState, duration: timeInterval)
+               
+            
+               default:
+                   break
+               }
+    }
+    
+    
+    @objc
+    func SlidehandlePan(recognizer : UIPanGestureRecognizer){
+        switch recognizer.state {
+        case .began:
+            
+            startSlideUpViewTrans(state: slideUpnextState, duration: timeInterval)
+            break
+            
+        case .changed:
+            let translation = recognizer.translation(in: self.slideUpViewController.handleAreaView)
+         
+            var fractionCompleted = translation.y  / SlideUpcardHeight
+            fractionCompleted = slideUpViewVisible ? fractionCompleted : -fractionCompleted
+            slideUpupdateTrans(fractionCompleted:fractionCompleted)
+            break
+            
+            
+        case .ended:
+            //check translation and stop animation if needed
+            slideUpcontinuetrans()
+            break
+            
+        default:
+            break
+        }
+        
+    }
+    
+    
+    
+    func slideupViewAnimator(state : SlideUpCardState , duration : TimeInterval)
+    {
+        
+     
+        if slideUprunningAnimations.isEmpty{
+            let viewAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+
+
+                switch state{
+
+            
+                case .closed:
+                    //OPENS TO MID SCREEN
+                    self.slideUpViewController.view.frame.origin.y = self.view.frame.height - self.SlideUpcardHeight
+                    self.slideUpnextState = .middle
+                    self.slideUpViewVisible = true
+                    break
+
+
+                case .middle:
+                    //OPENS TO FULL SCREEN
+                     self.slideUpViewController.view.frame.origin.y = 50
+                    self.slideUpnextState = .fullyOpen
+                     self.slideUpViewVisible = true
+                    break
+                    
+                case .fullyOpen:
+                    //CLOSES FULL SCREEN
+                     self.slideUpViewController.view.frame.origin.y = self.view.frame.height - self.SlideUpcardhandleAreaHeight
+                     print("fully open")
+                    self.slideUpnextState = .closed
+                     self.slideUpViewVisible = false
+                    
+                    
+                }
+            }
+            viewAnimator.addCompletion { (_) in
+                
+                self.slideUprunningAnimations.removeAll()
+            }
+
+            viewAnimator.startAnimation()
+
+            slideUprunningAnimations.append(viewAnimator)
+        }
+        
+        
+    }
+    
+    func startSlideUpViewTrans(state : SlideUpCardState , duration : TimeInterval){
+        if slideUprunningAnimations.isEmpty{
+            slideupViewAnimator(state:state, duration: duration)
+            
+        }
+        for animator in slideUprunningAnimations{
+            animator.pauseAnimation()
+            slideUpanimationProgressWhenInterrupted = animator.fractionComplete
+        }
+        
+        
+    }
+    
+    func slideUpupdateTrans(fractionCompleted : CGFloat){
+        
+        for animator in slideUprunningAnimations{
+            animator.fractionComplete = fractionCompleted + slideUpanimationProgressWhenInterrupted
+        }
+        
+    }
+    
+    func slideUpcontinuetrans(){
+        
+        for animator in slideUprunningAnimations {
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        }
+        
+    }
+    
+    
+    
+    
+    
+}
+
+extension ViewController : SlideUpViewControllerDelelegate {
+    func willUpdateMapViewWithCoordinate(coordinate: CLLocationCoordinate2D) {
+        /* update map view when user clicks on a collection view cell
+        by moving the map view to that location
+        */
+    }
+    
+    func willAddAnnotationwithcrowdItem(CrowdItem: [Crowd]) {
+        /*
+         add annotaions to each crowd item in the the crwodlist passed
+         */
+    }
+    
+    
+    
+}
 
 
 

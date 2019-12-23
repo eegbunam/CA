@@ -38,25 +38,14 @@ extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSourc
             cell.tapView.addGestureRecognizer(tapGestureRecognizer)
         }
         
-        //DownloadImage(imageURL: "https://image.blockbusterbd.net/00416_main_image_04072019225805.png")
-        //chnagingImage?.resizeImage(cell.snapButtonOutlet.frame.height, opaque: false)
-        // replace image url with imageurl from  indexpath.row
-        //cell.snapButtonOutlet.setBackgroundImage(chnagingImage, for: .normal)
-        //cell.snapImage.image = chnagingImage
+       
+        
+        
         return cell
        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor =  UIColor.red.cgColor
-    
-        print("\(indexPath.row)")
-        
-        var Indexlatitude = crowdList[indexPath.row].lattitude
-        var Indexlongitude = crowdList[indexPath.row].longitude
-        let Indexcoordinate = CLLocationCoordinate2DMake(Indexlatitude, Indexlongitude)
-        ZoomToLocation(coordinate: Indexcoordinate)
-        print(Indexlatitude , Indexlongitude)
+ 
         
         
     }

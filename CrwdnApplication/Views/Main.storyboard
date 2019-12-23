@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="G0O-Au-uZw">
             <objects>
-                <viewController id="xws-zD-hXH" customClass="ViewController" customModule="CrwdnApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="xws-zD-hXH" customClass="ViewController" customModule="CrwdnApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fte-UZ-1t2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                     <outlet property="delegate" destination="xws-zD-hXH" id="Z4n-Ly-pr4"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l8-rn-5f3">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2l8-rn-5f3">
                                 <rect key="frame" x="0.0" y="800" width="414" height="285"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMK-4v-M4L">
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygS-j8-TWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3957.971014492754" y="-420.53571428571428"/>
+            <point key="canvasLocation" x="1697" y="-444"/>
         </scene>
         <!--View Image Snap View Controller-->
         <scene sceneID="zXC-Ec-dBy">
@@ -359,7 +359,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rc-ss-ZC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047.826086956522" y="-420.53571428571428"/>
+            <point key="canvasLocation" x="2742" y="-86"/>
+        </scene>
+        <!--Container Slide View Controller-->
+        <scene sceneID="SkU-QP-J4q">
+            <objects>
+                <viewController id="4CE-W3-N7C" customClass="ContainerSlideViewController" customModule="CrwdnApplication" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oIl-RY-fgz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QNT-hw-2yg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hzf-cm-SIm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3417" y="-33"/>
         </scene>
     </scenes>
     <resources>

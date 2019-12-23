@@ -24,7 +24,8 @@ extension ViewController: CLLocationManagerDelegate {
         if firstUpdate{
             setUpRader()
             centerViewOnUserLocation()
-            populate(currentlattitude: userLattidude, currentLongitude: userLongitude)
+            delegate?.didGetCurrentLocation(currentLocation : CLLocationCoordinate2D(latitude: userLattidude, longitude: userLongitude))
+            
             firstUpdate = false
             
         }

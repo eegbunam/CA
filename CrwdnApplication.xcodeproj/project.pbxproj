@@ -52,11 +52,14 @@
 		4336359B23A5C77400AAC60E /* Group 25@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336357523A5C77400AAC60E /* Group 25@3x.png */; };
 		4336359C23A5C77400AAC60E /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336357623A5C77400AAC60E /* images.png */; };
 		4336359D23A5C77400AAC60E /* slidupbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4336357723A5C77400AAC60E /* slidupbar.png */; };
+		433A71DE23AC957000B21C95 /* SlideUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433A71DC23AC957000B21C95 /* SlideUpViewController.swift */; };
+		433A71DF23AC957000B21C95 /* SlideUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433A71DD23AC957000B21C95 /* SlideUpViewController.xib */; };
 		434B072E238913340028BADF /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434B072D238913340028BADF /* LocationSearchTable.swift */; };
 		4351984C23945A1500C487E1 /* menuBackgroundView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984B23945A1500C487E1 /* menuBackgroundView .swift */; };
 		4351984D2394631F00C487E1 /* menuBackgroundView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984B23945A1500C487E1 /* menuBackgroundView .swift */; };
 		4351984E2394631F00C487E1 /* menuBackgroundView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984B23945A1500C487E1 /* menuBackgroundView .swift */; };
 		43519850239463BF00C487E1 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351984F239463BF00C487E1 /* cardView.swift */; };
+		435B0C8C23AF30AF002CE520 /* Crowd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435B0C8B23AF30AF002CE520 /* Crowd.swift */; };
 		436B1C3523A96C2700C32790 /* SnapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B1C3423A96C2700C32790 /* SnapImageView.swift */; };
 		436B1C3723A97E0800C32790 /* ViewImageSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */; };
 		4372DB2A230F162B00972AB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372DB29230F162B00972AB8 /* AppDelegate.swift */; };
@@ -144,9 +147,12 @@
 		4336357523A5C77400AAC60E /* Group 25@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 25@3x.png"; sourceTree = "<group>"; };
 		4336357623A5C77400AAC60E /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		4336357723A5C77400AAC60E /* slidupbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slidupbar.png; sourceTree = "<group>"; };
+		433A71DC23AC957000B21C95 /* SlideUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUpViewController.swift; sourceTree = "<group>"; };
+		433A71DD23AC957000B21C95 /* SlideUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideUpViewController.xib; sourceTree = "<group>"; };
 		434B072D238913340028BADF /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		4351984B23945A1500C487E1 /* menuBackgroundView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "menuBackgroundView .swift"; sourceTree = "<group>"; };
 		4351984F239463BF00C487E1 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
+		435B0C8B23AF30AF002CE520 /* Crowd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crowd.swift; sourceTree = "<group>"; };
 		436B1C3423A96C2700C32790 /* SnapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapImageView.swift; sourceTree = "<group>"; };
 		436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageSnapViewController.swift; sourceTree = "<group>"; };
 		4372DB26230F162B00972AB8 /* CrwdnApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrwdnApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,7 +178,7 @@
 		43DD1E132375747E00822948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43E0844123A5D9A600E89358 /* RadarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDelegate.swift; sourceTree = "<group>"; };
 		43E0844323A5DB1C00E89358 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		43E0844723A5EAD300E89358 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = CrwdnApplication/Model/Constants.swift; sourceTree = SOURCE_ROOT; };
+		43E0844723A5EAD300E89358 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = CrwdnApplication/Utilities/Constants.swift; sourceTree = SOURCE_ROOT; };
 		43E0844923A5FAAE00E89358 /* CurrentParseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentParseUser.swift; sourceTree = "<group>"; };
 		EFA8122ED1288952C13E641B /* Pods-CrwdnApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrwdnApplication.release.xcconfig"; path = "Target Support Files/Pods-CrwdnApplication/Pods-CrwdnApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +234,9 @@
 				4372DB2B230F162B00972AB8 /* ViewController.swift */,
 				436B1C3623A97E0800C32790 /* ViewImageSnapViewController.swift */,
 				434B072D238913340028BADF /* LocationSearchTable.swift */,
+				433A71DD23AC957000B21C95 /* SlideUpViewController.xib */,
+				433A71DC23AC957000B21C95 /* SlideUpViewController.swift */,
+				433A71E023AC95A700B21C95 /* SlideUpViewController */,
 				43280155235158F3004C5725 /* ProfileViewController.swift */,
 				430D2D37231DFF1C005510A2 /* CameraViewController.swift */,
 			);
@@ -295,6 +304,13 @@
 				4336357723A5C77400AAC60E /* slidupbar.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		433A71E023AC95A700B21C95 /* SlideUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SlideUpViewController;
 			sourceTree = "<group>";
 		};
 		4372DB1D230F162B00972AB8 = {
@@ -392,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				43E0844923A5FAAE00E89358 /* CurrentParseUser.swift */,
+				435B0C8B23AF30AF002CE520 /* Crowd.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,6 +548,7 @@
 				4372DB37230F162C00972AB8 /* LaunchScreen.storyboard in Resources */,
 				4336357A23A5C77400AAC60E /* profileMenu@2x.png in Resources */,
 				4336358423A5C77400AAC60E /* positon@2x.png in Resources */,
+				433A71DF23AC957000B21C95 /* SlideUpViewController.xib in Resources */,
 				4336358C23A5C77400AAC60E /* slidupbar@3x.png in Resources */,
 				4336357B23A5C77400AAC60E /* menuSliderBtn@2x.png in Resources */,
 				4336359523A5C77400AAC60E /* CRWND WILL LIKE TO ACCESS YOU LOCATION@2x.png in Resources */,
@@ -653,9 +671,11 @@
 				4372DB2C230F162B00972AB8 /* ViewController.swift in Sources */,
 				4351984C23945A1500C487E1 /* menuBackgroundView .swift in Sources */,
 				430D2D38231DFF1C005510A2 /* CameraViewController.swift in Sources */,
+				435B0C8C23AF30AF002CE520 /* Crowd.swift in Sources */,
 				43D65B49235E8B9A00E391DE /* CollectionViewCell.swift in Sources */,
 				4372DB2A230F162B00972AB8 /* AppDelegate.swift in Sources */,
 				4396162D23680361001331FC /* SlideViewAnimations.swift in Sources */,
+				433A71DE23AC957000B21C95 /* SlideUpViewController.swift in Sources */,
 				43E0844823A5EAD300E89358 /* Constants.swift in Sources */,
 				4396162F236803F3001331FC /* CollectionViewExtention.swift in Sources */,
 				43E0844A23A5FAAE00E89358 /* CurrentParseUser.swift in Sources */,
