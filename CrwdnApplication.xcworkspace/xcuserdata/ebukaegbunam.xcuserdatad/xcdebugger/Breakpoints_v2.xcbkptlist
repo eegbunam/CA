@@ -398,10 +398,8 @@
             filePath = "CrwdnApplication/View Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "785"
-            endingLineNumber = "785"
-            landmarkName = "slideupViewAnimator(state:duration:)"
-            landmarkType = "7">
+            startingLineNumber = "796"
+            endingLineNumber = "796">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,10 +412,8 @@
             filePath = "CrwdnApplication/View Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "779"
-            endingLineNumber = "779"
-            landmarkName = "slideupViewAnimator(state:duration:)"
-            landmarkType = "7">
+            startingLineNumber = "790"
+            endingLineNumber = "790">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -430,10 +426,8 @@
             filePath = "CrwdnApplication/View Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "781"
-            endingLineNumber = "781"
-            landmarkName = "slideupViewAnimator(state:duration:)"
-            landmarkType = "7">
+            startingLineNumber = "792"
+            endingLineNumber = "792">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -448,8 +442,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            landmarkName = "setUpRader()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "4CF94F3E-37B0-4694-A1CB-62C97618C5E9 - 530e06a7a650d665"
@@ -570,10 +564,8 @@
             filePath = "CrwdnApplication/View Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "790"
-            endingLineNumber = "790"
-            landmarkName = "slideupViewAnimator(state:duration:)"
-            landmarkType = "7">
+            startingLineNumber = "801"
+            endingLineNumber = "801">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -621,22 +613,6 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "handlePan(recognizer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12851AF7-D46B-4403-97D0-4DF88EA73443"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CrwdnApplication/View Controllers/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "setImageID(imageid:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -730,9 +706,9 @@
             filePath = "CrwdnApplication/View Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "triggerDelegate(_:)"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "checkLocationAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 import RadarSDK
 
-extension ViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
     
     

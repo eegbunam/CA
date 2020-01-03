@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xk5-FC-KhX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="T3K-7t-8Pn">
+            <objects>
+                <viewController storyboardIdentifier="CameraViewController" id="Xk5-FC-KhX" customClass="CameraViewController" customModule="CrwdnApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4hg-xe-LJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQp-ks-rmf" customClass="SwiftyRecordButton" customModule="CrwdnApplication" customModuleProvider="target">
+                                <rect key="frame" x="169.5" y="787" width="75" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="F6h-eh-gUu"/>
+                                    <constraint firstAttribute="width" constant="75" id="P4I-RE-SVf"/>
+                                </constraints>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zrH-vN-8Ln">
+                                <rect key="frame" x="364" y="44" width="30" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mn-ef-xBm">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" image="flipCamera"/>
+                                        <connections>
+                                            <action selector="cameraSwitchTapped:" destination="Xk5-FC-KhX" eventType="touchUpInside" id="Eoe-9U-4ZC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV0-Og-Oee">
+                                        <rect key="frame" x="6" y="50" width="18" height="30"/>
+                                        <state key="normal" backgroundImage="flash"/>
+                                        <connections>
+                                            <action selector="toggleFlashTapped:" destination="Xk5-FC-KhX" eventType="touchUpInside" id="o31-JK-zub"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zrH-vN-8Ln" firstAttribute="top" secondItem="lDh-u6-Ihf" secondAttribute="top" id="Cfi-vW-ZzW"/>
+                            <constraint firstItem="lDh-u6-Ihf" firstAttribute="bottom" secondItem="PQp-ks-rmf" secondAttribute="bottom" id="JUX-bc-hgz"/>
+                            <constraint firstItem="lDh-u6-Ihf" firstAttribute="trailing" secondItem="zrH-vN-8Ln" secondAttribute="trailing" constant="20" id="OYV-nq-H5v"/>
+                            <constraint firstItem="PQp-ks-rmf" firstAttribute="centerX" secondItem="lDh-u6-Ihf" secondAttribute="centerX" id="aWq-hv-oNM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lDh-u6-Ihf"/>
+                    </view>
+                    <connections>
+                        <outlet property="captureButton" destination="PQp-ks-rmf" id="5dJ-9L-8Hu"/>
+                        <outlet property="flashButton" destination="qV0-Og-Oee" id="aPh-zB-btz"/>
+                        <outlet property="flipCameraButton" destination="9Mn-ef-xBm" id="YRD-ZF-ZFp"/>
+                        <segue destination="HTs-YX-A31" kind="modal" identifier="PhotoViewController" animates="NO" modalPresentationStyle="fullScreen" id="nFA-Rk-m0M"/>
+                        <segue destination="cUk-8m-Rve" kind="presentation" identifier="VideoViewController" animates="NO" modalPresentationStyle="fullScreen" id="uu2-Yn-N7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWH-RD-HXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1723" y="-267"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="fcR-aC-Gyt">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewController" id="HTs-YX-A31" customClass="PhotoViewController" customModule="CrwdnApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n6H-wJ-gT9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="aZn-bL-YSJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h9T-1c-A53"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCA-ML-Vhp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="-615"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="ejV-6D-a0g">
+            <objects>
+                <viewController id="cUk-8m-Rve" customClass="VideoViewController" customModule="CrwdnApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M1d-ZQ-WZF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Uo7-zH-MMF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="htM-aR-SQ1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YqY-UL-r71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="flash" width="18" height="30"/>
+        <image name="flipCamera" width="30" height="23"/>
+    </resources>
+</document>
